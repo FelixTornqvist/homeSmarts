@@ -1,0 +1,16 @@
+
+body {
+	background: black;
+	color: white;
+}
+
+header {
+	background: #1E3144;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="time"],
+select {
+	border-color: white;
+}

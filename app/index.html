@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link 
+			rel="stylesheet" 
+			href="default.css"
+			type="text/css"
+		/>
+		<link
+			rel="stylesheet"
+			media="only screen and (min-width: 981px)"
+			href="./default_desktop.css"
+			type="text/css"
+		/>
+		<link class="dark-stylesheet" rel="stylesheet" href="./default_dark.css" type="text/css" />
+
+		<title>HomeSmarts</title>
+		<script src="jquery-3.3.1.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header-wrapper">
+				<h1>🏠 HomeSmarts</h1>
+				<div id="header-right">
+					🌙
+					<div id="darkmode-switch" class="switch-outer">
+						<div class="switch-inner">
+						</div>
+					</div>
+					<span class="clock">--:--</span>
+				</div>
+			</div>
+		</header>
+		<div class="main">
+			<section>
+				<h2>Power outlets</h2>
+				<div id="outlet-buttons">
+					<!-- filled in from JS -->
+				</div>
+			</section>
+
+			<section>
+				<div class="header-wrapper">
+					<h2>Timers</h2> 
+					<button id="edit-events-btn">Edit</button>
+				</div>
+
+				<form id="edit-event-form">
+					<fieldset id="edit-event-fields">
+						<select id="outlet">
+							<!--filled in from JS -->
+						</select>
+
+						<input type="time" id="edit-time"  />
+
+						<select id="edit-outlet-on">
+							<option value="1">On</option>
+							<option value="0">Off</option>
+						</select>
+					</fieldset>
+				</form>
+				<div id="editing-tip">
+					Select an event to edit from the timeline
+					or list below.
+				</div>
+
+				<div id="event-sliders">
+					<!-- filled in from JS -->
+				</div>
+
+				<table id="events-table">
+					<!-- filled in from JS -->
+				</table>
+
+			</section>
+		
+		</div>
+	</body>
+</html>

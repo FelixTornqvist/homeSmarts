@@ -1,0 +1,14 @@
+
+html, body {
+	font-size: 15px;
+}
+
+header {
+	padding: 10px 20px;
+}
+
+.main {
+	padding: 10px;
+	margin: auto;
+	width: 50%;
+}
