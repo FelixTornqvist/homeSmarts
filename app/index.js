@@ -27,11 +27,14 @@ $(document).ready(function() {
 	// get outlet settings from server. 
 	// Tip: use python -m SimpleHTTPServer 8080 to test this
 	$.get('outlet_settings.json', function(ret) {
-		outlets = ret;
-		renderEvents();
-
-		renderOutletOptions();
-		renderOutletButtons();
+    try {
+      outlets = JSON.parse(ret);
+      renderEvents();
+      renderOutletOptions();
+      renderOutletButtons();
+    } catch (err) {
+      alert('something went wrong while getting outlet settings: ' + err);
+    }
 	});
 
 	$('#edit-event-fields').hide();
