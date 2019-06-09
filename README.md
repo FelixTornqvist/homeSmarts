@@ -1,6 +1,10 @@
 # HomeSmarts
 HomeSmarts is a webapp designed to make it easy to execute a command that controls your power outlets. Use it for example with a tellstick connected to your computer, or using [433Utils](https://github.com/ninjablocks/433Utils/tree/master/RPi_utils) combined with a 433MHz transmitter connected to a raspberry pi.
 
+## Features
+* Manually control outlets
+* Easily set timers for outlets
+
 ## Requirements
 Only Node.js is required to run this project. Developed using version 8.11.4.
 
