@@ -4,8 +4,12 @@ const fs = require('fs');
 const path = require('path');
 
 const toggle = require('./toggle');
+const timer = require('./timer');
 
 const port = 8080;
+
+// init stuff
+timer.init();
 
 http.createServer((request, response) => {
   const uri = url.parse(request.url).pathname
@@ -70,7 +74,7 @@ function handleApiCall(path, request, response) {
     try {
       switch(path.shift()) {
         case 'toggle':
-          toggle(path, body, response);
+	        toggle.handleApiCall(path, body, response);
           break;
         default:
           response.writeHead(404, {"Content-Type": "text/plain"});
