@@ -1,1 +1,1 @@
-[{"name":"Lampa","events":[{"time":1140,"on":true},{"time":120,"on":false}]},{"name":"Wifi","events":[]},{"name":"Unused","events":[{"time":720,"on":false},{"time":740,"on":false},{"time":1058,"on":false},{"time":1320,"on":false},{"time":1050,"on":false},{"time":540,"on":false},{"time":450,"on":false}]}]
+[{"name":"Lampa","events":[{"time":1140,"on":true},{"time":120,"on":false}]},{"name":"Wifi","events":[]},{"name":"Unused","events":[]}]

@@ -38,6 +38,7 @@ $(document).ready(function() {
 	});
 
 	$('#edit-event-fields').hide();
+	$('#delete-event-btn').click(deleteEventButtonClick);
 	$('#editing-tip').hide();
 	$('#edit-events-btn').click(editbuttonClick);
 	$('#darkmode-switch').click(darkmodeClick);
@@ -155,6 +156,15 @@ function eventFormUpdated() {
 		}
 		renderEvents()
 	}
+}
+
+function deleteEventButtonClick(eve) {
+	eve.preventDefault();
+	removeEvent(outletBeingEdited, eventBeingEdited);
+	$('#editing-tip').show();
+	$('#edit-event-fields').hide();
+	outletBeingEdited = -1;
+	eventBeingEdited = -1;
 }
 
 
