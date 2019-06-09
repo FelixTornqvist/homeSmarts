@@ -76,6 +76,11 @@ function handleApiCall(path, request, response) {
         case 'toggle':
 	        toggle.handleApiCall(path, body, response);
           break;
+
+        case 'events':
+          timer.handleApiCall(path, body, response);
+          break;
+
         default:
           response.writeHead(404, {"Content-Type": "text/plain"});
           response.write('404 Not Found\n');
@@ -83,8 +88,10 @@ function handleApiCall(path, request, response) {
           break;
       }
     } catch (err) {
+      console.log('Error: ', err);
+
       response.writeHead(500, {"Content-Type": "text/plain"});
-      reposnse.write('500 Internal server error: ' + err);
+      response.write('500 Internal server error: ' + err);
       response.end();
     }
   });

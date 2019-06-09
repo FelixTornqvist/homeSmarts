@@ -88,11 +88,7 @@ function powerButtonClick(outletInd, on) {
 }
 
 function saveEventsClick() {
-	// this would be sent to a server that controls actual power outlets.
-	alert('save events:\n' + JSON.stringify(outlets));
-
-	// Something like this:
-	// $.post('api/events', { events: outlets });
+	$.post('api/events', JSON.stringify({ events: outlets }));
 }
 
 function darkmodeClick() {

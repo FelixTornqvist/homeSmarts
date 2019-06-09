@@ -16,10 +16,21 @@ function nowInMinutes() {
   return now.getHours() * 60 + now.getMinutes();
 }
 
-function minutePassed() {
-  let outlets = JSON.parse(
+function readOutletsFile() {
+  return JSON.parse(
     fs.readFileSync(__dirname + '/../app/outlet_settings.json')
+  ); 
+}
+
+function writeOutletsFile(toWrite) {
+  fs.writeFileSync(
+    __dirname + '/../app/outlet_settings.json',
+    toWrite
   );
+}
+
+function minutePassed() {
+  let outlets = readOutletsFile();
 
   const now = nowInMinutes();
 
@@ -28,7 +39,7 @@ function minutePassed() {
 
     for (let eve of outlet.events) {
       if (eve.time == now) {
-        console.log('event:', eve, new Date());
+        console.log('event:', outletIndex, eve, new Date());
         toggle.toggle(outletIndex, eve.on);
       }
     }
@@ -37,4 +48,24 @@ function minutePassed() {
   timeout = setTimeout(minutePassed, timeTillNextMinute());
 }
 
-module.exports = {init};
+
+function handleApiCall(path, body, response) {
+  const outlets = readOutletsFile();
+
+  if (body.events.length != outlets.length) {
+    throw Error('outlet arrays do not match in length');
+  }
+
+  const toWrite = JSON.stringify(body.events);
+  writeOutletsFile(toWrite);
+
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write('success');
+  response.end();
+
+}
+  
+module.exports = {
+  init,
+  handleApiCall,
+};
