@@ -4,6 +4,7 @@ rfprogram='codesend'
 
 if [ $2 == 'on' ]
 then
+  # $1 corresponds to the index of an outlet in app/outlet_settings.json
   case $1 in
     0)
       $rfprogram 1381717
