@@ -27,14 +27,14 @@ $(document).ready(function() {
 	// get outlet settings from server. 
 	// Tip: use python -m SimpleHTTPServer 8080 to test this
 	$.get('outlet_settings.json', function(ret) {
-    try {
-      outlets = JSON.parse(ret);
-      renderEvents();
-      renderOutletOptions();
-      renderOutletButtons();
-    } catch (err) {
-      alert('something went wrong while getting outlet settings: ' + err);
-    }
+		try {
+			outlets = JSON.parse(ret);
+			renderEvents();
+			renderOutletOptions();
+			renderOutletButtons();
+		} catch (err) {
+			alert('something went wrong while getting outlet settings: ' + err);
+		}
 	});
 
 	$('#edit-event-fields').hide();
@@ -77,16 +77,14 @@ function updateTime(now) {
 }
 
 function powerButtonClick(outletInd, on) {
-	// this would instead send a http request to a server that controls
-	// actual outlets.
-	if (on) {
-		alert('power on outlet '+ outletInd);
-	} else {
-		alert('power off outlet '+ outletInd);
-	}
+	const handleResponse = (response) => {
+		 console.log('response: ' + response);
+	};
 
-	// Something like this:
-	//$.post('api/power', { outlet: outletInd, on: on });
+	$.post('api/toggle',
+		JSON.stringify({ outlet: outletInd, on: on }),
+		handleResponse,
+	);
 }
 
 function saveEventsClick() {

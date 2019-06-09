@@ -1,1 +1,28 @@
-[{"name":"Vardagsrum takfläkt","events":[{"time":1080,"on":true},{"time":1260,"on":false},{"time":720,"on":false}]},{"name":"Sovrum fönsterlampa","events":[{"time":450,"on":true},{"time":540,"on":false},{"time":1050,"on":true},{"time":1320,"on":false}]},{"name":"Trädgård bevattningssystem","events":[{"time":720,"on":true},{"time":725,"on":false}]}]
+[
+  {
+    "name":"Vardagsrum takfläkt",
+    "events":[
+      {"time":1080, "on":true},
+      {"time":1260, "on":false},
+      {"time":720, "on":false}
+    ]
+  },
+
+  {
+    "name":"Sovrum fönsterlampa",
+    "events":[
+      {"time":450, "on":true},
+      {"time":540, "on":false},
+      {"time":1050, "on":true},
+      {"time":1320, "on":false}
+    ]
+  },
+
+  {
+    "name":"Trädgård bevattningssystem",
+    "events":[
+      {"time":720, "on":true},
+      {"time":725, "on":false}
+    ]
+  }
+]

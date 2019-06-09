@@ -52,18 +52,37 @@ http.createServer((request, response) => {
   });
 }).listen(port);
 
+function collectRequestData(request, callback) {
+  let body = '';
+  request.on('data', chunk => {
+    body += chunk.toString();
+  });
+  request.on('end', () => {
+    callback(JSON.parse(body));
+  });
+}
+
 function handleApiCall(path, request, response) {
   console.log('handling api call', path);
 
-  switch(path.shift()) {
-    case 'toggle':
-      toggle(path, request, response);
-      break;
-    default:
-      response.writeHead(404, {"Content-Type": "text/plain"});
-      response.write('404 Not Found\n');
-      break;
-  }
+  collectRequestData(request, body => {
 
-  response.end();
+    try {
+      switch(path.shift()) {
+        case 'toggle':
+          toggle(path, body, response);
+          break;
+        default:
+          response.writeHead(404, {"Content-Type": "text/plain"});
+          response.write('404 Not Found\n');
+          response.end();
+          break;
+      }
+    } catch (err) {
+      response.writeHead(500, {"Content-Type": "text/plain"});
+      reposnse.write('500 Internal server error: ' + err);
+      response.end();
+    }
+  });
+
 }
