@@ -1,15 +1,9 @@
-// This is the program for "HomeSmarts", a webapp for setting timers for, and 
-// controlling your outlets manually. The server calls are commented out and
-// replaced with alert()'s so that you can replace them with your own http calls.
-
 // The structure that keeps track of all of the events
 let outlets = [
 	{
-		"name": "Vardagsrum takfläkt",
+		"name": "Something went wrong",
 		"events": [
-			{ "time": 1080, "on": true },
-			{ "time": 1260, "on": false },
-			{ "time": 720, "on": false }
+			{ "time": -1, "on": false },
 		]
 	}
 ];
@@ -25,7 +19,6 @@ let outletBeingEdited = -1;
 // Initial setup
 $(document).ready(function() {
 	// get outlet settings from server. 
-	// Tip: use python -m SimpleHTTPServer 8080 to test this
 	$.get('outlet_settings.json', function(ret) {
 		try {
 			outlets = JSON.parse(ret);
